@@ -17,7 +17,13 @@ function reverseText() {
         result = result + inputArray[i];
     };
     console.log("Reversed result is " + result);
-    alert(result); 
+    let outputDiv = document.getElementById("textareaDiv");
+    let outputBox = document.createElement("textarea");
+    outputBox.id = "outputTextArea";
+    outputBox.rows = "20";
+    outputBox.cols = "100";
+    outputBox.value = result;
+    outputDiv.appendChild(outputBox);
 };
 //target the 'reverse button and execute reversal function when clicked
 let reverseBtn = document.getElementById("reverseBtn");
