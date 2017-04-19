@@ -9,7 +9,7 @@ function reverseText() {
   
     console.log("Array before reversal will be " + inputArray);
     inputArray.reverse();
-    console.log("Array after reversal will ve " + inputArray);
+    console.log("Array after reversal will be " + inputArray);
     let result = "";
 
     for (let i = 0; i < inputArray.length; i++) {
