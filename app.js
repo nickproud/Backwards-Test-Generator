@@ -43,7 +43,8 @@ function reverseText() {
             reverseBtn.style.display = "none";
             pageBody.appendChild(outputBox);
             pageBody.appendChild(resetBtn);
-            resetBtn.addEventListener("click", resetPage);
+           
+            $('#resetBtn').click(resetPage);
         }
 
 };
@@ -61,8 +62,7 @@ function resetPage() {
    
 }
 
-
-reverseBtn.addEventListener("click", reverseText);
+$('#reverseBtn').click(reverseText);
 
 
 
