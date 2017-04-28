@@ -30,17 +30,22 @@ function reverseText() {
         else {
             console.log("Reversed result is " + result);
             let outputDiv = document.getElementById("textareaDiv");
+            let outputHead = document.createElement("h2");
             let outputBox = document.createElement("textarea");
             let resetBtn = document.createElement("button");
             resetBtn.textContent = "Reset";
             resetBtn.id = "resetBtn";
 
+            outputHead.id = "outputHead";
+            outputHead.textContent = "Your reversed text:";
             outputBox.id = "outputTextArea";
             outputBox.rows = "10";
             outputBox.cols = "100";
             outputBox.value = result;
             outputHead.style.display = "block";
             reverseBtn.style.display = "none";
+
+            pageBody.appendChild(outputHead);
             pageBody.appendChild(outputBox);
             pageBody.appendChild(resetBtn);
            
@@ -52,10 +57,12 @@ function reverseText() {
 function resetPage() {
     let pageBody = document.querySelector("body");
     let outputBox = document.getElementById("outputTextArea");
+    let outputHead = document.getElementById("outputHead");
     pageBody.removeChild(outputBox);
     let resetButton = document.getElementById("resetBtn");
     pageBody.removeChild(resetButton);
     outputHead.style.display = "none";
+    
     reverseBtn.style.display = "block";
     let inputbox = document.getElementById("inputBox");
     inputbox.value = "";
