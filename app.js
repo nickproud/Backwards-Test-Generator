@@ -2,67 +2,68 @@ const reverseBtn = document.getElementById("reverseBtn");
 const resetBtn = document.getElementById("resetBtn");
 const pageBody = document.querySelector("body");
 const outputHead = document.getElementById("outputHeader");
+const mainModal = document.getElementById("mainModal");
+let textInput = document.getElementById("textInput").value;
+let modalTitle = document.getElementsByClassName("modal-title").value;
 
 
 function reverseText() {
-    let textInput = document.getElementById("inputBox").value;
+    let result = "";
+    let textInput = document.getElementById("textInput").value;
 
-        let inputArray = [];
-        for (let i = 0; i < textInput.length; i++) {
+    let inputArray = [];
+    for (let i = 0; i < textInput.length; i++) {
 
-            inputArray.push(textInput[i]);
-        }
+        inputArray.push(textInput[i]);
+        console.log(inputArray);
+    }
 
-        console.log("Array before reversal will be " + inputArray);
-        inputArray.reverse();
-        console.log("Array after reversal will be " + inputArray);
-        let result = "";
+    console.log("Array before reversal will be " + inputArray);
+    inputArray.reverse();
 
-        for (let i = 0; i < inputArray.length; i++) {
+    console.log("Array after reversal will be " + inputArray);
+    
 
-            result = result + inputArray[i];
-        };
+    for (let i = 0; i < inputArray.length; i++) {
+
+        result = result + inputArray[i];
+    };
+
+    
 
 
-        if (textInput == "") {
-            alert("cannot insert a blank value");
-        }
-        else {
-            console.log("Reversed result is " + result);
-            let outputDiv = document.getElementById("textareaDiv");
-            let outputBox = document.createElement("textarea");
-            let resetBtn = document.createElement("button");
-            resetBtn.textContent = "Reset";
-            resetBtn.id = "resetBtn";
 
-            outputBox.id = "outputTextArea";
-            outputBox.rows = "10";
-            outputBox.cols = "100";
-            outputBox.value = result;
-            outputHead.style.display = "block";
-            reverseBtn.style.display = "none";
-            pageBody.appendChild(outputBox);
-            pageBody.appendChild(resetBtn);
-           
-            $('#resetBtn').click(resetPage);
-        }
 
-};
 
-function resetPage() {
-    let pageBody = document.querySelector("body");
-    let outputBox = document.getElementById("outputTextArea");
-    pageBody.removeChild(outputBox);
-    let resetButton = document.getElementById("resetBtn");
-    pageBody.removeChild(resetButton);
-    outputHead.style.display = "none";
-    reverseBtn.style.display = "block";
-    let inputbox = document.getElementById("inputBox");
-    inputbox.value = "";
-   
+
+
+
+
+    if (textInput == "") {
+        $(".modal-title").html("No text!:");
+        $(".modal-body").html("Cannot insert blank value");
+    }
+    else {
+
+        $(".modal-title").html("Reversed text:");
+        $(".modal-body").html(result);
+    }
+
+
 }
 
-$('#reverseBtn').click(reverseText);
 
 
 
+$(reverseBtn).on("click", function () {
+    reverseText();
+   
+});
+
+$('.close').on('click', function () {
+    $(".modal-body").html("");
+
+});
+    
+
+        

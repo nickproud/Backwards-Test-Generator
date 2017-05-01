@@ -1,0 +1,12 @@
+﻿
+
+#textInputMain {
+    margin-top: 20px;
+}
+
+.modal-body p:first-letter{
+
+
+    text-transform: capitalize;
+    
+}
